@@ -156,7 +156,6 @@ jobs:
           SCORE="${{ env.SCORE }}"
           JSON=$(jq -nc --arg timestamp "$TIMESTAMP" --arg repo "$REPO" --arg user "$USER" --arg level "$LEVEL" --arg score "$SCORE" \
             '{timestamp: $timestamp, repo: $repo, user: $user, level: $level, score: $score}')
-          # Perbaikan di sini: Pastikan curl dalam satu baris logis
           curl -X POST "$SHEETBEST_URL" -H "Content-Type: application/json" -d "$JSON"
 
       - name: 🏆 Fetch Global Leaderboard (SheetBest)
@@ -359,7 +358,7 @@ jobs:
             <b>• 🚶 JOURNEY_AT :</b> <code>${{ env.FORMATTED_TIME }}</code>
 
             <b>• 🧩 CULTIVATION_STAGE :</b> <code>${{ env.LEVEL_NAME }}</code>
-            <b>• 👤 IMMORTAL_NAME :</b> `flloraflin@gmail.com`
+            <b>• 👤 IMMORTAL_NAME :</b> flloraflin@gmail.com
 
             <b>🏆 <u>LEADERBOARD (TOP 10 GLOBAL)</u> 🏆</b>
             ━━━━━━━━━━━━━━━━━━━━━━
